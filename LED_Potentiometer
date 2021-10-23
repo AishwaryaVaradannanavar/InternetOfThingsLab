@@ -1,0 +1,16 @@
+void setup() {
+  pinMode(11,OUTPUT);
+  pinMode(A0,INPUT);
+  Serial.begin(9600);
+  
+
+}
+
+void loop() {
+  int SensorValue=analogRead(A0);
+  int OutputValue=map(SensorValue,0,1023,0,255);
+  analogWrite(11,OutputValue);
+  Serial.println(SensorValue);
+  Serial.println(OutputValue);
+  delay(100);
+}
