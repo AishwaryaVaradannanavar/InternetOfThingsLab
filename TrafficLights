@@ -1,6 +1,6 @@
 int green=13; 
-int yellow=12; 
-int red=11; 
+int yellow=11; 
+int red=9; 
 void setup() 
 {   
 pinMode(green, OUTPUT);
@@ -11,19 +11,16 @@ void loop()
 {  
   //Green
   digitalWrite(green, HIGH);  
-  digitalWrite(yellow, LOW); 
-  digitalWrite(red, LOW);  
   delay(1000);  
-      
-  //Yellow   
-  digitalWrite(yellow, HIGH);
-  digitalWrite(green, LOW);  
-  digitalWrite(red, LOW); 
-  delay(1000); 
-
-   //Red 
-  digitalWrite(red, HIGH); 
   digitalWrite(green, LOW); 
+  delay(1000);
+  //Yellow   
+  digitalWrite(yellow, HIGH);  
+  delay(1000);  
   digitalWrite(yellow, LOW);  
-  delay(1000); 
-}
+  //Red 
+  delay(1000);
+  digitalWrite(red, HIGH);  
+  delay(1000);  
+  digitalWrite(red, LOW);  
+} 
