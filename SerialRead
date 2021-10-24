@@ -1,0 +1,39 @@
+void setup() {
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+}
+char incomingByte;
+int i;
+void loop() {
+  if(Serial.available()>0){
+    incomingByte=Serial.read();
+    if(incomingByte==97){
+      digitalWrite(13,HIGH);
+      delay(100);
+      digitalWrite(13,LOW);
+      delay(100);
+    }
+    if(incomingByte==98){
+      for(i=5;i>=0;i--){
+        digitalWrite(13,HIGH);
+        delay(100);
+      digitalWrite(13,LOW);
+      delay(100);
+      }
+    }
+       if(incomingByte==99){
+      for(i=10;i>=0;i--){
+        digitalWrite(13,HIGH);
+        delay(100);
+      digitalWrite(13,LOW);
+      delay(100);
+      }
+      
+      
+    }
+     
+      Serial.println(incomingByte);
+    
+    
+  }
+}
