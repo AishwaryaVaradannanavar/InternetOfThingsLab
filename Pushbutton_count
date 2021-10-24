@@ -1,0 +1,31 @@
+int inpin=2;
+int outpin=13;
+int val,count=0,flag=0;
+void setup() {
+  pinMode(inpin,INPUT);
+  pinMode(outpin,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  val=digitalRead(inpin);
+  
+  if(val==HIGH){
+    digitalWrite(outpin,val);
+    if(flag==0){
+      count+=1;
+      Serial.println(count);
+      
+    }
+    flag=1;
+  }
+  else{
+    digitalWrite(outpin,val);
+   
+    flag=0;
+    
+  }
+delay(1000);
+  
+  
+}
