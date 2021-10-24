@@ -1,0 +1,25 @@
+int inpin=2;
+int outpin=13;
+int val;
+void setup() {
+  pinMode(inpin,INPUT);
+  pinMode(outpin,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  val=digitalRead(inpin);
+  
+  if(val==1){
+    digitalWrite(outpin,val);
+    
+  }
+  else{
+    digitalWrite(outpin,val);
+   
+    
+  }
+  
+  
+  
+}
