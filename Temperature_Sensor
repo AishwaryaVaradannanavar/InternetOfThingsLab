@@ -1,0 +1,16 @@
+int inpin=A0;
+void setup() {
+  Serial.begin(9600);
+  
+}
+
+void loop() {
+  int rawvoltage=analogRead(inpin);
+  float millivolts=(rawvoltage/1024.0)*5000;
+  float celcius=millivolts/10;
+  Serial.print(celcius);
+  Serial.println(" degree celcius");
+  Serial.print(celcius*9/5+32);
+  Serial.println(" degree Fahrenhiet");
+  delay(1000);
+}
