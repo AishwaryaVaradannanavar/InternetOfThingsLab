@@ -1,0 +1,41 @@
+const int trigpin=2;
+const int echopin=12;
+int buzzer=13;
+
+void setup() {
+  pinMode(trigpin,OUTPUT);
+  pinMode(echopin,INPUT);
+  pinMode(buzzer,OUTPUT);
+  Serial.begin(9600);
+}
+float microsecondsToInches(float ms)
+{
+  return ms/74/2;
+}
+float microsecondsToCentimeters(float ms)
+{
+  return ms/29/2;
+}
+void loop() {
+  digitalWrite(trigpin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigpin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigpin,LOW);
+  float duration=pulseIn(echopin,HIGH);
+  float inches =microsecondsToInches(duration);
+  float cm =microsecondsToCentimeters(duration);
+
+  if(cm<=7.0){
+    digitalWrite(buzzer,HIGH);
+    
+  }
+  else{
+    digitalWrite(buzzer,LOW);
+  }
+  Serial.print(inches);
+  Serial.println(" inches");
+  Serial.print(cm);
+  Serial.println(" cm");
+  delay(1000);
+}
