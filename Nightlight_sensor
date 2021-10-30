@@ -1,0 +1,25 @@
+int inpin=A0;
+int outpin=13;
+int lightsensitivity=300;
+void setup() {
+  pinMode(inpin,INPUT);
+  pinMode(outpin,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int light=analogRead(inpin);
+  if(light>=lightsensitivity)
+  {
+    Serial.println("Sufficient light avilable,turn off LED");
+    Serial.println(light);
+    digitalWrite(outpin,LOW);
+    delay(2000);
+  }
+  else{
+    Serial.println("Sufficient light not avilable,turn on LED");
+    Serial.println(light);
+    digitalWrite(outpin,HIGH);
+    delay(2000);
+  }
+  }
